@@ -22,7 +22,7 @@ const movieSchema = new Schema({
     type: String,
     required: [true, 'Tags Must Be Filled']
   }]
-}, {timestamps: true, versionKey: false})
+})
 
 const Movie = mongoose.model('Movie', movieSchema)
 module.exports = Movie

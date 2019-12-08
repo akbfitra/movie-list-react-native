@@ -4,6 +4,6 @@ const MovieController = require('../controllers/Movie')
 routes.get('/movie', MovieController.findAll)
 routes.post('/movie', MovieController.create)
 routes.put('/movie/:id', MovieController.update)
-routes.delete('/movie/:id', MovieController.delete)
+routes.put('/movie/:id', MovieController.delete)
 
 module.exports = routes

@@ -22,7 +22,7 @@ const seriesSchema = new Schema({
     type: String,
     required: [true, 'Tags Must Be Filled']
   }]
-}, {timestamps: true, versionKey: false})
+})
 
 const Series = mongoose.model('Series', seriesSchema)
 module.exports = Series
