@@ -11,7 +11,7 @@ class MovieController {
   }
 
   static findAll (req, res, next){
-    Movie.findAll()
+    Movie.find()
       .then(data => {
         res.status(200).json(data)
       })
@@ -22,16 +22,16 @@ class MovieController {
     const {id} = req.params
     Movie.findByIdAndRemove(id)
       .then(result => {
-        res.status(200).json(data)
+        res.status(200).json(result)
       })
       .catch(next)
   }
 
   static update(req, res, next){
-    const {id} = res.params
+    const {id} = req.params
     const fields = ['title', 'description', 'url', 'popularity', 'tags']
     const update = {}
-    for( key in req.body ){
+    for(let key in req.body ){
       fields.forEach(el => {
         if(key == el ){
           update[key] = req.body[key]
@@ -40,7 +40,7 @@ class MovieController {
     }
     Movie.findByIdAndUpdate(id, update)
       .then( result => {
-        res.status(200).json(data)
+        res.status(200).json(result)
       })
       .catch(next)
   }
