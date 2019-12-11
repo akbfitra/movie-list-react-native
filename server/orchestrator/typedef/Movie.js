@@ -16,6 +16,7 @@ const Movie = gql`
 
   type Query {
     movies: [Movie],
+    moviedetail(id: String): Movie
   }
 
   type Mutation {

@@ -1,19 +1,19 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import Navigation from './Navigation/navigation'
+import { ApplicationProvider, Layout, Text } from '@ui-kitten/components';
+import { mapping, light as lightTheme } from '@eva-design/eva';
+
+import { ApolloProvider } from '@apollo/react-hooks'
+import client from './Apollo'
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Bismillah</Text>
-    </View>
+    <ApolloProvider client={client}>
+    <ApplicationProvider mapping={mapping} theme={lightTheme}>
+      <Navigation></Navigation>
+    </ApplicationProvider>
+    </ApolloProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+

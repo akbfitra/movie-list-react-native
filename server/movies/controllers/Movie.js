@@ -18,6 +18,15 @@ class MovieController {
       .catch(next)
   }
 
+  static findOne(req, res, next){
+    const {id} = req.params
+    Movie.findById( id )
+      .then(data => {
+        res.status(200).json(data)
+      })
+      .catch(next)
+  }
+
   static delete(req, res, next){
     const {id} = req.params
     Movie.findByIdAndRemove(id)

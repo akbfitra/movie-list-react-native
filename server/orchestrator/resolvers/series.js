@@ -15,6 +15,20 @@ const serieResolvers = {
       catch({response}){
         throw new ApolloError(response.data.message, 'No Data')
       }
+    },
+    seriedetail: async (parent, args, context, info ) => {
+      console.log(args.id)
+      try{
+        const {data} = await axiosSerie({
+          method: 'GET',
+          url: `/series/${args.id}`
+        })
+        
+        return data
+      }
+      catch({response}){
+        throw new ApolloError(response.data.message, 'No Data')
+      }
     }
   },
   Mutation:{
@@ -51,6 +65,7 @@ const serieResolvers = {
       }
     },
     deleteSerie: async(parent, args, context, info) => {
+      
       try{
         const { data } = await axiosSerie({
           method:'DELETE',

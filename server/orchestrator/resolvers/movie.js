@@ -15,6 +15,21 @@ const movieResolvers = {
       catch({response}){
         throw new ApolloError(response.data.message, 'No Data')
       }
+    },
+    moviedetail: async (parent, args, context, info ) => {
+      
+      try{
+        const {data} = await axiosMovie({
+          method: 'GET',
+          url: `/movie/${args.id}`
+        })
+        console.log(data)
+        return data
+
+      }
+      catch({response}){
+        throw new ApolloError(response.data.message, 'No Data')
+      }
     }
   },
   Mutation:{

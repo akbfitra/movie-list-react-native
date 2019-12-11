@@ -7,12 +7,10 @@ const Entertainment = gql`
     movies: [Movie],
     series: [Serie]
   }
-
+  
   extend type Query {
     entertainment: Entertainment
   }
-
-  
 `
 
 module.exports = Entertainment

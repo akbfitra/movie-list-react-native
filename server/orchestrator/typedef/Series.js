@@ -16,6 +16,7 @@ const series = gql`
 
   extend type Query {
     series: [Serie],
+    seriedetail(id: String): Serie
   }
 
   extend type Mutation {
